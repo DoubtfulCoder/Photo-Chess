@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const url = 'http://localhost:5000/api';
+        async function postData() {
+             const rawResponse = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': 'http://localhost:5000/api',
+                    'Access-Control-Allow-Credentials': 'true'
+                },
+                body: JSON.stringify({ 
+                    'image_path': 'images/IMG_20220118_210009652.jpg' 
+                })
+            });
+            const content = await rawResponse.json();
+
+            console.log(content);
+        }
+
+        postData();
+    </script>
+</body>
+</html>
