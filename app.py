@@ -57,6 +57,10 @@ def predict():
 def yo():
     return jsonify([1,2,3])
 
+@app.route('/')
+def index():
+    return 'Hello World'
+
 # if __name__ == '__main__':
 #     from waitress import serve
 #     serve(app, host="0.0.0.0", port=5000)
