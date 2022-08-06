@@ -57,7 +57,7 @@ def predict():
 def yo():
     return jsonify([1,2,3])
 
-if __name__ == '__main__':
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=5000)
-    # app.run(port=5000, debug=True)
+# if __name__ == '__main__':
+#     from waitress import serve
+#     serve(app, host="0.0.0.0", port=5000)
+#     # app.run(port=5000, debug=True)
