@@ -14,7 +14,7 @@ from square_detect import get_squares
 
 app = Flask(__name__)
 # CORS(app)
-CORS(app, resources={r'/*': {'origins': '*'}})
+# CORS(app, resources={r'/*': {'origins': '*'}})
 
 def convertBase64ToFile(base64str):
     file_bytes = base64.b64decode(base64str)
