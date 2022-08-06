@@ -7,13 +7,14 @@ import imutils
 import numpy as np
 import requests
 from flask import Flask, jsonify, request
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 from piece_detect import get_pieces
 from square_detect import get_squares
 
 app = Flask(__name__)
-# CORS(app)
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 # CORS(app, resources={r'/*': {'origins': '*'}})
 
 def convertBase64ToFile(base64str):
@@ -24,8 +25,8 @@ def convertBase64ToFile(base64str):
 
 
 # Load the model
-
 @app.route('/api',methods=['POST'])
+@cross_origin()
 def predict():
     # Get the data from the POST request.
     data = request.get_json(force=True)
@@ -54,10 +55,12 @@ def predict():
     # return jsonify(squares.tolist())
 
 @app.route('/api', methods=['GET'])
+@cross_origin()
 def yo():
     return jsonify([1,2,3])
 
 @app.route('/')
+@cross_origin()
 def index():
     return 'Hello World'
 
