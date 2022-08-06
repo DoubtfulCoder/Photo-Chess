@@ -60,7 +60,6 @@ def yo():
     return jsonify([1,2,3])
 
 @app.route('/')
-@cross_origin()
 def index():
     return 'Hello World'
 
